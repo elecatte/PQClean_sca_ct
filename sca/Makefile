@@ -3,8 +3,8 @@ CFLAGS = -O3 -Wall -Wextra -march=native -I.. -I../common
 LDFLAGS = -lm
 
 # Directory PQClean (relativo a benchmarks/)
-MCELIECE_DIR = ../crypto_kem/mceliece6960119/clean
-HQC_DIR = ../crypto_kem/hqc-256/clean
+MCELIECE_DIR = ../crypto_kem/mceliece348864f/clean
+HQC_DIR = ../crypto_kem/hqc-128/clean
 COMMON_DIR = ../common
 
 # File sorgente McEliece
@@ -26,14 +26,14 @@ COMMON_SOURCES = $(COMMON_DIR)/fips202.c \
 COMMON_OBJECTS = $(COMMON_SOURCES:.c=.o)
 
 # Target principale
-TARGET = sca
+TARGET = sca_ct
 
 all: $(TARGET)
 
-$(TARGET): sca.o $(MCELIECE_OBJECTS) $(HQC_OBJECTS) $(COMMON_OBJECTS)
+$(TARGET): sca_ct.o $(MCELIECE_OBJECTS) $(HQC_OBJECTS) $(COMMON_OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-sca.o: sca.c
+sca_ct.o: sca_ct.c
 	$(CC) $(CFLAGS) -I$(MCELIECE_DIR) -I$(HQC_DIR) -c $<
 
 %.o: %.c
