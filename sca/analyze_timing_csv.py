@@ -1,14 +1,4 @@
 #!/usr/bin/env python3
-"""
-Analisi dei CSV di timing prodotti dal test SCA Level 1 (fixed vs random /
-valid vs corrupted) su PQClean.
-
-Uso:
-    python3 analyze_timing_csv.py file1.csv [file2.csv ...]
-
-Ogni CSV deve avere due colonne: "class,cycles" con class in {fixed,random}
-o {valid,corrupted} (qualsiasi nome di classe binaria funziona).
-"""
 
 import sys
 import os
