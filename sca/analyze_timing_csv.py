@@ -88,10 +88,9 @@ def plot_result(result, outdir="."):
     bins = 80
     axes[0].hist(a, bins=bins, alpha=0.6, label=class_a, density=True)
     axes[0].hist(b, bins=bins, alpha=0.6, label=class_b, density=True)
-    axes[0].set_xlabel("Cicli CPU")
-    axes[0].set_ylabel("Densita'")
-    axes[0].set_title(f"Distribuzione timing - {base}\n"
-                       f"t={result['t']:.2f}, p={result['p']:.1e}, d={result['d']:.3f}")
+    axes[0].set_xlabel("CPU cycles")
+    axes[0].set_ylabel("Density")
+    axes[0].set_title(f"Timing distribution - {base}")
     axes[0].legend()
 
     # Box plot per confronto rapido di mediana/dispersione
@@ -101,8 +100,8 @@ def plot_result(result, outdir="."):
         # Compatibilita' con matplotlib < 3.9, dove il parametro si
         # chiamava ancora "labels" invece di "tick_labels".
         axes[1].boxplot([a, b], labels=[class_a, class_b], showfliers=False)
-    axes[1].set_ylabel("Cicli CPU")
-    axes[1].set_title("Box plot (outlier >99perc esclusi)")
+    axes[1].set_ylabel("CPU cycles")
+    axes[1].set_title(f"Box plot - {base}")
 
     plt.tight_layout()
     outpath = os.path.join(outdir, f"{base}_analysis.png")
