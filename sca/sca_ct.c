@@ -10,8 +10,8 @@
 #include <unistd.h>
 #include <stdint.h>
 
-#include "crypto_kem/mceliece460896f/clean/api.h"
-#include "crypto_kem/hqc-192/clean/api.h"
+#include "crypto_kem/mceliece6688128f/clean/api.h"
+#include "crypto_kem/hqc-256/clean/api.h"
 
 #define NUM_MEASUREMENTS 10000
 #define WARMUP_ITERATIONS 5
@@ -299,25 +299,25 @@ int main() {
     srand((unsigned int)time(NULL));
 
     KemAlgo mceliece = {
-        .name = "mceliece460896f",
-        .keypair = (keypair_fn)PQCLEAN_MCELIECE460896F_CLEAN_crypto_kem_keypair,
-        .encaps = (enc_fn)PQCLEAN_MCELIECE460896F_CLEAN_crypto_kem_enc,
-        .decaps = (dec_fn)PQCLEAN_MCELIECE460896F_CLEAN_crypto_kem_dec,
-        .pk_size = PQCLEAN_MCELIECE460896F_CLEAN_CRYPTO_PUBLICKEYBYTES,
-        .sk_size = PQCLEAN_MCELIECE460896F_CLEAN_CRYPTO_SECRETKEYBYTES,
-        .ct_size = PQCLEAN_MCELIECE460896F_CLEAN_CRYPTO_CIPHERTEXTBYTES,
-        .ss_size = PQCLEAN_MCELIECE460896F_CLEAN_CRYPTO_BYTES,
+        .name = "mceliece6688128f",
+        .keypair = (keypair_fn)PQCLEAN_MCELIECE6688128F_CLEAN_crypto_kem_keypair,
+        .encaps = (enc_fn)PQCLEAN_MCELIECE6688128F_CLEAN_crypto_kem_enc,
+        .decaps = (dec_fn)PQCLEAN_MCELIECE6688128F_CLEAN_crypto_kem_dec,
+        .pk_size = PQCLEAN_MCELIECE6688128F_CLEAN_CRYPTO_PUBLICKEYBYTES,
+        .sk_size = PQCLEAN_MCELIECE6688128F_CLEAN_CRYPTO_SECRETKEYBYTES,
+        .ct_size = PQCLEAN_MCELIECE6688128F_CLEAN_CRYPTO_CIPHERTEXTBYTES,
+        .ss_size = PQCLEAN_MCELIECE6688128F_CLEAN_CRYPTO_BYTES,
     };
 
     KemAlgo hqc = {
-        .name = "hqc192",
-        .keypair = (keypair_fn)PQCLEAN_HQC192_CLEAN_crypto_kem_keypair,
-        .encaps = (enc_fn)PQCLEAN_HQC192_CLEAN_crypto_kem_enc,
-        .decaps = (dec_fn)PQCLEAN_HQC192_CLEAN_crypto_kem_dec,
-        .pk_size = PQCLEAN_HQC192_CLEAN_CRYPTO_PUBLICKEYBYTES,
-        .sk_size = PQCLEAN_HQC192_CLEAN_CRYPTO_SECRETKEYBYTES,
-        .ct_size = PQCLEAN_HQC192_CLEAN_CRYPTO_CIPHERTEXTBYTES,
-        .ss_size = PQCLEAN_HQC192_CLEAN_CRYPTO_BYTES,
+        .name = "hqc256",
+        .keypair = (keypair_fn)PQCLEAN_HQC256_CLEAN_crypto_kem_keypair,
+        .encaps = (enc_fn)PQCLEAN_HQC256_CLEAN_crypto_kem_enc,
+        .decaps = (dec_fn)PQCLEAN_HQC256_CLEAN_crypto_kem_dec,
+        .pk_size = PQCLEAN_HQC256_CLEAN_CRYPTO_PUBLICKEYBYTES,
+        .sk_size = PQCLEAN_HQC256_CLEAN_CRYPTO_SECRETKEYBYTES,
+        .ct_size = PQCLEAN_HQC256_CLEAN_CRYPTO_CIPHERTEXTBYTES,
+        .ss_size = PQCLEAN_HQC256_CLEAN_CRYPTO_BYTES,
     };
 
     // Test 1: fixed vs random ciphertexts
