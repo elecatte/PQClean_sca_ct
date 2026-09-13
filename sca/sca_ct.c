@@ -10,7 +10,7 @@
 #include <unistd.h>
 #include <stdint.h>
 
-#include "crypto_kem/mceliece6960119f/clean/api.h"
+#include "crypto_kem/mceliece8192128f/clean/api.h"
 #include "crypto_kem/hqc-256/clean/api.h"
 
 #define NUM_MEASUREMENTS 10000
@@ -299,14 +299,14 @@ int main() {
     srand((unsigned int)time(NULL));
 
     KemAlgo mceliece = {
-        .name = "mceliece6960119f",
-        .keypair = (keypair_fn)PQCLEAN_MCELIECE6960119F_CLEAN_crypto_kem_keypair,
-        .encaps = (enc_fn)PQCLEAN_MCELIECE6960119F_CLEAN_crypto_kem_enc,
-        .decaps = (dec_fn)PQCLEAN_MCELIECE6960119F_CLEAN_crypto_kem_dec,
-        .pk_size = PQCLEAN_MCELIECE6960119F_CLEAN_CRYPTO_PUBLICKEYBYTES,
-        .sk_size = PQCLEAN_MCELIECE6960119F_CLEAN_CRYPTO_SECRETKEYBYTES,
-        .ct_size = PQCLEAN_MCELIECE6960119F_CLEAN_CRYPTO_CIPHERTEXTBYTES,
-        .ss_size = PQCLEAN_MCELIECE6960119F_CLEAN_CRYPTO_BYTES,
+        .name = "mceliece8192128f",
+        .keypair = (keypair_fn)PQCLEAN_MCELIECE8192128F_CLEAN_crypto_kem_keypair,
+        .encaps = (enc_fn)PQCLEAN_MCELIECE8192128F_CLEAN_crypto_kem_enc,
+        .decaps = (dec_fn)PQCLEAN_MCELIECE8192128F_CLEAN_crypto_kem_dec,
+        .pk_size = PQCLEAN_MCELIECE8192128F_CLEAN_CRYPTO_PUBLICKEYBYTES,
+        .sk_size = PQCLEAN_MCELIECE8192128F_CLEAN_CRYPTO_SECRETKEYBYTES,
+        .ct_size = PQCLEAN_MCELIECE8192128F_CLEAN_CRYPTO_CIPHERTEXTBYTES,
+        .ss_size = PQCLEAN_MCELIECE8192128F_CLEAN_CRYPTO_BYTES,
     };
 
     KemAlgo hqc = {
