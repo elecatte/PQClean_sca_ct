@@ -3,7 +3,7 @@ CFLAGS = -O3 -Wall -Wextra -march=native -I.. -I../common
 LDFLAGS = -lm
 
 # Directory PQClean (relativo a benchmarks/)
-MCELIECE_DIR = ../crypto_kem/mceliece6688128f/clean
+MCELIECE_DIR = ../crypto_kem/mceliece6960119f/clean
 HQC_DIR = ../crypto_kem/hqc-256/clean
 COMMON_DIR = ../common
 
